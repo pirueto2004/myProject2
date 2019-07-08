@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">  
+    <link rel="stylesheet" href="css/index.css" media="screen" title="no title">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand navbar-expand-lg" id="logo">WAREHOUSE-1</span>
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link mr-sm-2 font-weight-bold" href="/logout">Logout<span class="sr-only">(current)</span></a>
+            </li>
+            </ul>
+    </nav>
+    
+    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" style="background-color: #e3f2fd;">
+        <button id="inventory" type="button" class="btn btn-primary mx-1">View Current Inventory</button>
+        <button id="low" type="button" class="btn btn-warning mx-1">View Low Inventory</button>
+        <button id="restock" type="button" class="btn btn-success mx-1">Add to Stock</button>
+        <button id="new" type="button" class="btn btn-info mx-1">Add New Product</button>
+        <button id="order" type="button" class="btn btn-danger mx-1 disabled">Place Order</button>
+        <button id="history" type="button" class="btn btn-secondary mx-1">Order History</button>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table text-center table-hover table-bordered">
+                    <h2 class="text-center">Current Inventory</h2>
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Units</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Using Bootstrap, make a sticky footer -->
+    <footer>
+        <div class="footer fixed-bottom navbar-expand-lg bg-dark text-white text-center">
+            <p class="navbar-text my-2 my-lg-0">
+                Copyright  &copy Ultimate Software Solutions Inc. 2019
+            </p>     
+        </div>
+    </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="js/inventory.js" type="text/javascript"></script>
+</body>
+</html>

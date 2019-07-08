@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">  
+    <link rel="stylesheet" href="css/index.css" media="screen" title="no title">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <span class="navbar-brand navbar-expand-lg" id="logo">WAREHOUSE-1</span>
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+              <a class="nav-link mr-sm-2 font-weight-bold" href="/">Logout<span class="sr-only">(current)</span></a>
+          </li>
+          </ul>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" style="background-color: #e3f2fd;">
+        <a href="/inventory" class="btn btn-primary mx-1" role="button">View Current Inventory</a>
+        <a href="/low_inventory" class="btn btn-warning mx-1" role="button">View Low Inventory</a>
+        <a href="/manage-brand" class="btn btn-success mx-1" role="button">Add New Brand</a>
+        <a href="/new" class="btn btn-info mx-1" role="button">Add New Product</a>
+        <a href="#" class="btn btn-danger mx-1" role="button">New Order</a>
+        <a href="#" class="btn btn-secondary mx-1" role="button">Order History</a>
+    </nav>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="">Manage Brands</h1>
+        </div>
+    </div>
+      <br><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <h4>Add New Brands</h4>
+              <form class="form-inline">
+                  <div class="form-group mb-2">
+                    <label for="inputBrandName" class="sr-only">Brand Name</label>
+                    <input type="text" class="form-control" id="BrandName" placeholder="Enter Brand Name">
+                  </div>
+                  <button type="submit" class="btn btn-primary mx-2 mb-2" id="CreateBrand">Create Brand</button>
+              </form>
+            <br><br>
+            <h4>Available Brands</h4>
+            <table id="BrandTable" class="table tablesorter text-center table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" >Brand ID</th>
+                  <th scope="col">Brand Name</th>
+                  <!-- <th scope="col" ># of Products</th> -->
+                  <th scope="col">Delete Brand</th>
+                </tr>
+              </thead>
+                <tbody id="BrandBody">
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+        </d>
+   
+    <!-- Using Bootstrap, make a sticky footer -->
+    <footer>
+        <div class="footer fixed-bottom navbar-expand-lg bg-dark text-white text-center">
+            <p class="navbar-text my-2 my-lg-0">
+                Copyright  &copy Ultimate Software Solutions Inc. 2019
+            </p>     
+        </div>
+    </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> 
+      <script src="js/newBrand.js" type="text/javascript"></script>   
+      
+</body>
+</html>

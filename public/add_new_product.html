@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">  
+    <link rel="stylesheet" href="css/index.css" media="screen" title="no title">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand navbar-expand-lg" id="logo">WAREHOUSE-1</span>
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link mr-sm-2 font-weight-bold" href="/logout">Logout<span class="sr-only">(current)</span></a>
+            </li>
+            </ul>
+    </nav>
+    
+    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" style="background-color: #e3f2fd;">
+        <button type="button" class="btn btn-primary mx-1">View Current Inventory</button>
+        <button type="button" class="btn btn-warning mx-1">View Low Inventory</button>
+        <button type="button" class="btn btn-success mx-1">Add to Stock</button>
+        <button type="button" class="btn btn-info mx-1 active">Add New Product</button>
+        <button type="button" class="btn btn-danger mx-1">Place Order</button>
+        <button type="button" class="btn btn-secondary mx-1">Order History</button>
+    </nav>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="">Add New Product to Inventory</h1>
+        </div>
+    </div>
+      <br><br>
+      <div class="row">
+      <div class="col-md-12">
+      <form id="ims">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputProductName">Product Name</label>
+            <input type="text" class="form-control" id="ProductName" placeholder="RB Aviator Classic" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="details">Product Details</label>
+            <input type="text" class="form-control" id="ProductDetails" placeholder="Gender, Color, Materials,Shape, Features etc" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="brandName">Brand</label>
+            <!-- <input type="text" class="form-control" id="BrandName" placeholder="Versace" required> -->
+            <select id="BrandName" class="form-control" required>
+              <option disabled="disabled" selected="selected">Choose...</option>
+              <option>Alain Mikli</option>
+              <option>Armani Exchange</option>
+              <option>Prada</option>
+              <option>Burberry</option>
+              <option>Bvlgari</option>
+              <option>Chanel</option>
+              <option>Coach</option>
+              <option>Costa Del Mar</option>
+              <option>Dior</option>
+              <option>Dolce & Gabbana</option>
+              <option>Fendi</option> 
+              <option>Gucci</option>
+              <option>Maui Jim</option>
+              <option>Michael Kors</option>
+              <option>Oakley</option>
+              <option>Persol</option>
+              <option>Polo Ralph Lauren</option>
+              <option>Prada</option>
+              <option>Ralph Lauren</option>
+              <option>Ray-Ban</option>
+              <option>Valentino</option>
+              <option>Versace</option> 
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="units">Units</label>
+            <input type="number" class="form-control" id="ProductUnits" min="1" placeholder="#" required>
+            <!-- <input type="text" class="form-control" id="ProductUnits" placeholder="Units" required> -->
+          </div>
+        </div>
+       
+              
+        <button type="submit" class="btn btn-primary animated infinite pulse">Submit New Product</button>
+      </form>
+      </div>
+    </div>
+    </div>
+   
+    <!-- Using Bootstrap, make a sticky footer -->
+    <footer>
+        <div class="footer fixed-bottom navbar-expand-lg bg-dark text-white text-center">
+            <p class="navbar-text my-2 my-lg-0">
+                Copyright  &copy Ultimate Software Solutions Inc. 2019
+            </p>     
+        </div>
+    </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="js/newProduct.js" type="text/javascript"></script>   
+      
+</body>
+</html>
