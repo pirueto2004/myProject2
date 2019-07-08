@@ -22,7 +22,7 @@
     "prettier": "^1.17.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "npm start",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha  --reporter spec --exit"
