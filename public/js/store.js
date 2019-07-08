@@ -189,11 +189,10 @@ function edit_Order(id){
     url: "/orders/:id",
     type: "POST",
     data: {
-        OrderId: id,
-        OrderStatus: 'Closed'
+        OrderStatus: "Closed"
     },
-    success: function (data) {
-        alert(data);
+    success: function () {
+      getOrders();
     }
   }); // added }
 };
