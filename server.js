@@ -53,12 +53,16 @@ require("./routes/api-routes.js")(app);
 //     console.log("App listening on PORT " + PORT);
 //   });
 // });
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  App Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
+db.sequelize
+  .query("SET FOREIGN_KEY_CHECKS = 0", { raw: true })
+  .then(function() {
+    db.sequelize.sync().then(function() {
+      app.listen(PORT, function() {
+        console.log(
+          "==> 🌎  App Listening on port %s. Visit http://localhost:%s/ in your browser.",
+          PORT,
+          PORT
+        );
+      });
+    });
   });
-});
