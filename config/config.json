@@ -16,11 +16,12 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": "Timbre@1966",
-    "database": "pro2master_db",
-    "host": "127.0.0.1",
+    "username": "fnwe93b7qu8eboum",
+    "password": "dnh8j05pcbvqh97h",
+    "database": "o7n4sozr8hyykzbx",
+    "host": "d6ybckq58s9ru745.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
+    "port": 3306,
     "operatorsAliases": false
   }
 }

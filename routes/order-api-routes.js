@@ -38,16 +38,20 @@ module.exports = function(app) {
     });
   });
 
-  app.put( "/orders/:id", (req, res) =>
-    db.order.update({
-      OrderStatus: req.body.OrderStatus,
-    },
-    {
-      where: {
-        OrderId: req.params.id
+  app.put("/orders/:id", function(req, res) {
+    db.Order.update(
+      {
+        OrderStatus: req.body.OrderStatus
+      },
+      {
+        where: {
+          OrderId: req.params.id
+        }
       }
-    }).then( (result) => res.json(result) )
-  );
+    ).then(function(result) {
+      res.json(result);
+    });
+  });
 
   app.delete("/orders/:id", function(req, res) {
     // console.log(typeof req.params.id);

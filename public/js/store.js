@@ -88,28 +88,28 @@ $(document).ready(function() {
       return;
     }
 
-    alert(
-      "Order submitted:  " +
-        newOrder.StoreName +
-        "||" +
-        newOrder.ProductName +
-        "||" +
-        newOrder.ProductDetails +
-        "||" +
-        newOrder.Brand +
-        "||" +
-        newOrder.Units +
-        "||" +
-        newOrder.UnitPrice +
-        "||" +
-        newOrder.OrderTotal +
-        "||" +
-        newOrder.OrderStatus
-    );
-    console.log(newOrder);
-    postOrder(newOrder);
-    localStorage.clear();
-  });
+  //   alert(
+  //     "Order submitted:  " +
+  //       newOrder.StoreName +
+  //       "||" +
+  //       newOrder.ProductName +
+  //       "||" +
+  //       newOrder.ProductDetails +
+  //       "||" +
+  //       newOrder.Brand +
+  //       "||" +
+  //       newOrder.Units +
+  //       "||" +
+  //       newOrder.UnitPrice +
+  //       "||" +
+  //       newOrder.OrderTotal +
+  //       "||" +
+  //       newOrder.OrderStatus
+  //   );
+  //   console.log(newOrder);
+  //   postOrder(newOrder);
+  //   localStorage.clear();
+  // });
 
   //==== Main =====================
 
@@ -205,8 +205,8 @@ function getOrders() {
 function changeOrderStatus(id) {
   $.ajax({
     // added {
-    url: "/orders/:id",
-    type: "POST",
+    url: "/orders/" + id,
+    type: "PUT",
     data: {
       OrderId: id,
       OrderStatus: "Closed"

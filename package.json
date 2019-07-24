@@ -1,9 +1,10 @@
 {
-  "name": "dreamteamproject-2",
+  "name": "myproject2",
   "version": "1.0.0",
   "description": "A simple inventory management system for Sunglasses Warehouse.",
   "main": "server.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
@@ -22,19 +23,19 @@
     "prettier": "^1.17.1"
   },
   "scripts": {
-    "start": "npm start",
+    "start": "node server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha  --reporter spec --exit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amitsinghgh19/DreamTeamProject-2.git"
+    "url": "git+https://github.com/pirueto2004/myProject2"
   },
   "author": "Amit Singh, Julio Bell, Omar Vega, Orlando Asuncion",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amitsinghgh19/DreamTeamProject-2/issues"
+    "url": "https://github.com/pirueto2004/myProject2/issues"
   },
-  "homepage": "https://github.com/amitsinghgh19/DreamTeamProject-2#readme"
+  "homepage": "https://github.com/pirueto2004/myProject2#readme"
 }
