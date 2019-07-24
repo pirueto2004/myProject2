@@ -6,50 +6,69 @@
 // =============================================================
 var path = require("path");
 
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // Routes
 // =============================================================
 module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads index.html- login page
+  // ******************************************************************************************************
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/inventory");
+    }
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // inventory route loads inventory.html
-  app.get("/inventory", function(req, res) {
+  app.get("/signup", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/inventory");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/inventory", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/inventory.html"));
   });
 
-  // inventory route loads add_new_product.html
-  app.get("/new", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add_new_product.html"));
-  });
-
   // brand route loads add_new_brand.html
-  app.get("/manage-brand", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add_new_brand.html"));
-  });
-
-  // brand route loads add_new_brand.html
-  app.get("/low_inventory", function(req, res) {
+  app.get("/low_inventory", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/low_inventory.html"));
   });
 
-  //order route loads add-new-order.html
-  app.get("/store", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/store.html"));
+  // brand route loads add_new_brand.html
+  app.get("/manage-brand", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/add_new_brand.html"));
+  });
+
+  // inventory route loads add_new_product.html
+  app.get("/new", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/add_new_product.html"));
   });
 
   //order route loads add-new-order.html
-  app.get("/all", function(req, res) {
+  app.get("/all", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/orders.html"));
   });
 
-  //order route loads view-order.html
-  app.get("/order", function(req, res) {
+  //order route loads place_orders.html
+  app.get("/order", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/place_orders.html"));
   });
 
-   
+  //order route loads view-order.html
+  app.get("/order_details", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/view-order.html"));
+  });
+
+  // index route loads index.html- login page
+  app.get("/store1", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/storeindex.html"));
+  });
 };

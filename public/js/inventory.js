@@ -1,13 +1,53 @@
 /* eslint-disable prettier/prettier */
+      
+
 $(document).ready(function() {
   //var todayDate = new Date()
 
   getProducts();
 
+  countOpenOrders();
+
+  $("#newOrder").on("click", function(){
+    getNewOrders();
+  });
+
+  
   // eslint-disable-next-line no-unused-vars
   $(document).on("click", "button.delete", function(r) {
     deleteProduct($(this).attr("data-value"));
   });
+  // eslint-disable-next-line no-unused-vars
+  $(document).on("click", "button.edit", function(r) {
+    editProduct($(this).attr("data-value"),$($(this).parent().parent().children()[5]).html());
+  });
+
+
+  function countOpenOrders() {
+    var count = 0;
+    $.get("/orders", function(data) {  
+      for (var i = 0; i < data.length; i++) {
+        if(data[i].OrderStatus.trim() === "Open"){
+          count+=1;
+          // console.log("Open" + count);
+          $("#badge").text(count);
+        } 
+      } 
+    });  
+  }
+
+  function getNewOrders() {
+    $.get("/orders", function(data) {  
+      for (var i = 0; i < data.length; i++) {
+        
+        if(data[i].OrderStatus.trim() === "Open"){
+          var row = createOrderRow(data[i],i);
+          
+        } 
+        $("#order-rows").append(row);
+      } 
+    });  
+  }
 
   function getProducts() {
     $.get("/products", function(data) {
@@ -16,6 +56,7 @@ $(document).ready(function() {
         $("#productBody").append(row);
       }
     });
+    
   }
 
   function createNewRow(product, index) {
@@ -38,15 +79,24 @@ $(document).ready(function() {
       product.Brand +
       "</td>" +
       "<td>" +
+      product.BrandName +
+      "</td>" +
+      "<td contenteditable='true' class = unitClass>" +
       product.Units +
       "</td>" +
       "<td>" +
       product.UnitPrice +
       "</td>" +
       "<td>" +
-      "<button class=\"edit product-options\" data-value=\"" +
+      "<button class='btn btn-sm btn-info btn-rounded edit product-options' data-value=\"" +
       product.ProductId +
       "\">edit</button>" +
+      "</td>" +
+      // "<td>" + product.Brand.Id + "</td>" +
+      "<td>" +
+      "<button class='btn btn-sm btn-danger btn-rounded delete product-options' data-value=\"" +
+      product.ProductId +
+      "\">update</button>" +
       "</td>" +
       "<td>" +
       "<button class=\"delete product-options\" data-value=\"" +
@@ -69,36 +119,16 @@ $(document).ready(function() {
     });
   }
 
+  
+  function editProduct(id, data) {
+    $.ajax({
+      method: "PUT",
+      url: "/products/" + id,
+      data: {Units:data}
+    }).then(function() {
+      window.location.href = "/inventory";
+      //getProducts();
+    });
+  }
 
- 
-   // Get references to inventory page button elements
-    const $buttonClicked = $(".btn");
-    
-    $buttonClicked.on("click", function(){
-
-        let $buttonId = $(this).attr("id");
-
-        switch ($buttonId) {
-            case "btn1":
-              window.location.href = "inventory.html";
-                break;
-            case "btn2":
-              window.location.href = "#";
-                break;
-            case "btn3" :
-              window.location.href = "#";
-                break;
-            case "btn4":
-              window.location.href = "add_new_product.html";
-                break;
-            case "btn5":
-              window.location.href = "add_new_order.html";
-                break;
-            case "btn6":
-              window.location.href = "orders.html";
-                break;
-            
-       };
-    
-      });
 });
