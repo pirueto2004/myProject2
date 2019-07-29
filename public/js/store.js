@@ -104,7 +104,7 @@ function selectProducts() {
             StoreName: storeName,
             ProductName: productName,
             ProductDetails: productDetails,
-            Brand: brandName,
+            BrandName: brandName,
             Units: orderUnits,
             UnitPrice: unitPrice,
             OrderTotal: orderTotal,
@@ -153,7 +153,7 @@ function buildNewOrder() {
         "</td><td> " +
         data.ProductDetails +
         "</td><td> " +
-        data.Brand +
+        data.BrandName +
         "</td><td> " +
         data.UnitPrice +
         "</td><td> " +
@@ -169,7 +169,7 @@ function buildNewOrder() {
     unitAvgePrice += parseFloat(data.UnitPrice);
     productNames.push(data.ProductName);
     productDetailList.push(data.ProductDetails);
-    brandList.push(data.Brand);
+    brandList.push(data.BrandName);
     count += 1;
   }
 
@@ -187,7 +187,7 @@ function buildNewOrder() {
     ProductId: productIdList,
     ProductName: productNames,
     ProductDetails: productDetailList,
-    Brand: brandList,
+    BrandName: brandList,
     Units: totalUnits,
     UnitPrice: unitAvgePrice,
     OrderTotal: orderTotal,
@@ -253,7 +253,7 @@ function createNewRow(product, index) {
     product.ProductDetails +
     "</td>" +
     "<td>" +
-    product.Brand +
+    product.BrandName +
     "</td>" +
     "<td class='text-center'>" +
     product.UnitPrice +
@@ -263,9 +263,9 @@ function createNewRow(product, index) {
     // order.Units +
     "</td>" +
     "<td scope='row'>" +
-    "<input class='form-check-input ml-2' type='checkbox' name='rowItem'  id=\"item" +
+    "<input class='form-check-input ml-2' type='checkbox' name='rowItem'  id='item' " +
     product.ProductId +
-    "\">" +
+    ">" +
     "<label class='form-check-label' for='checkbox1' class='label-table'></label>" +
     "</td>" +
     "</tr>";
@@ -296,9 +296,9 @@ function createOrderRow(order, index) {
     order.OrderStatus +
     "</td>" +
     "<td>" +
-    "<button type='button' id='dispatch' class='btn btn-sm btn-warning dispatch' data-value=\"" +
+    "<button type='button' id='dispatch' class='btn btn-sm btn-warning dispatch' data-value=' " +
     order.OrderId +
-    "\" >Dispatch</button>" +
+    "'>Dispatch</button>" +
     "</td>" +
     "</tr>";
   return orderRow;

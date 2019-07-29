@@ -21,6 +21,7 @@ $(document).ready(function() {
 
   //Get all the brand names options from Brands tabel to use in create new product.
   appendSurvivorOptions();
+  
   function appendSurvivorOptions () {
     $.get("/brand", function (data) {
       for (var i = 0; i < data.length; i++) {

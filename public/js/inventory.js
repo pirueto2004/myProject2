@@ -1,6 +1,4 @@
 /* eslint-disable prettier/prettier */
-      
-
 $(document).ready(function() {
   //var todayDate = new Date()
 
@@ -75,9 +73,9 @@ $(document).ready(function() {
       "<td>" +
       product.Gender +
       "</td>" +
-      "<td>" +
-      product.Brand +
-      "</td>" +
+      // "<td>" +
+      // product.Brand +
+      // "</td>" +
       "<td>" +
       product.BrandName +
       "</td>" +

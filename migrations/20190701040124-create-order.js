@@ -20,7 +20,7 @@ module.exports = {
       ProductDetails: {
         type: Sequelize.STRING
       },
-      Brand: {
+      BrandName: {
         type: Sequelize.STRING
       },
       Units: {

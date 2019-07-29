@@ -1,6 +1,6 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Product = sequelize.define('Product', {
+"use strict";
+module.exports = function(sequelize, DataTypes) {
+  var Product = sequelize.define("Product", {
     ProductId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -33,14 +33,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  Product.associate = function(models) {
-    // We're saying that a new product should belong to a brand
-    // A Product can't be created without a brand due to the foreign key constraint
-    Product.belongsTo(models.Brand);
-  };
+  // Product.associate = function(models) {
+  // We're saying that a new product should belong to a brand
+  // A Product can't be created without a brand due to the foreign key constraint
+  // Product.belongsTo(models.Brand);
+  // };
 
-  Product.associate = function(models) {
-    // associations can be defined here
-  };
   return Product;
 };

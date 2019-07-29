@@ -1,7 +1,7 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var Brand = sequelize.define("Brand", {
-    Id: {
+    BrandId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Brand.associate = function(models) {
-    // Associating Brand with Products
-    // When a Brand is deleted, also delete any associated Products
-    Brand.hasMany(models.Product, {
-      onDelete: "CASCADE"
-    });
-  };
+  // Brand.associate = function(models) {
+  // Associating Brand with Products
+  // When a Brand is deleted, also delete any associated Products
+  // Brand.hasMany(models.Product, {
+  //   onDelete: "CASCADE"
+  // });
+  // };
 
   return Brand;
 };

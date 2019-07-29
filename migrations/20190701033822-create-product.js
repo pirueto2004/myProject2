@@ -17,7 +17,7 @@ module.exports = {
       Gender: {
         type: Sequelize.STRING
       },
-      Brand: {
+      BrandName: {
         type: Sequelize.STRING
       },
       Units: {
