@@ -7,7 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
-const Op = require("Sequelize").Op;
+const Op = require("sequelize").Op;
 // var lte = $("#lessThenEquelTo").val();
 //const { lte } = require("../public/js/low.js");
 

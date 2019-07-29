@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "Timbre@1966",
-    "database": "pro2master_db",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
     
