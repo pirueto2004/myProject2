@@ -45,23 +45,15 @@ require("./routes/order-api-routes.js")(app);
 require("./routes/api-routes.js")(app);
 // require("./routes/login-api-routes.js")(app);
 
-// Syncing our sequelize models and then starting our Express app
+//Syncing our sequelize models and then starting our Express app
 // =============================================================
 
-// db.sequelize.sync().then(function() {
-//   app.listen(PORT, function() {
-//     console.log("App listening on PORT " + PORT);
-//   });
-// });
-/ Syncing our sequelize models and then starting our Express app
-// =============================================================
-
-    db.sequelize.sync().then(function() {
-      app.listen(PORT, function() {
-        console.log(
-          "==> 🌎  App Listening on port %s. Visit http://localhost:%s/ in your browser.",
-          PORT,
-          PORT
-        );
-      });
-    });
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  App Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+});

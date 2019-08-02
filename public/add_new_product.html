@@ -29,7 +29,7 @@
       <a href="/low_inventory" class="btn btn-warning mx-1" role="button">View Low Inventory</a>
       <a href="/manage-brand" class="btn btn-success mx-1" role="button">Manage Brand</a>
       <a href="/new" class="btn btn-info mx-1" role="button">Add New Product</a>
-      <!-- <a href="#" class="btn btn-danger mx-1" role="button">New Order</a> -->
+      <a href="/all" id="order" role="button" class="btn btn-danger mx-1">New Orders<span class="badge badge-dark ml-4 p-1" id="badge"></span></a>
       <a href="/all" class="btn btn-secondary mx-1" role="button">Order History</a>
     </nav>
 
@@ -68,7 +68,7 @@
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="details">Product Details</label>
-                                <input type="text" class="form-control" id="ProductDetails" placeholder="Gender, Color, Materials,Shape, Features etc" required>
+                                <input type="text" class="form-control" id="Details" placeholder="Gender, Color, Materials,Shape, Features etc" required>
                               </div>
                               <div class="form-group col-md-3">
                                 <label for="Gender">Select Gender</label>
@@ -82,8 +82,8 @@
                                 </select>
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="brandName">Brand</label>
-                                <select id="BrandName" class="form-control" required>
+                                <label for="Brand">Brand</label>
+                                <select id="Brand" class="form-control" required>
                                   <option disabled="disabled" selected="selected">Choose...</option>
                                   <option>Alain Mikli</option>
                                   <option>Armani Exchange</option>

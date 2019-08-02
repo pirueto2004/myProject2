@@ -2,6 +2,12 @@
 // alert("test start");
 //console.log("test start");
 $(document).ready(function() {
+
+  countOpenOrders();
+
+  $("#newOrder").on("click", function(){
+    getNewOrders();
+  });
   // Getting jQuery references to the post body, title, form, and survivor select
   var inputProductName = $("#ProductName");
   var details = $("#Details");
@@ -65,4 +71,31 @@ function submitProduct(product) {
   $.post("/products", product, function() {
     window.location.href = "/inventory";
   });
+}
+
+
+function countOpenOrders() {
+  var count = 0;
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      if(data[i].OrderStatus.trim() === "Open"){
+        count+=1;
+        // console.log("Open" + count);
+        $("#badge").text(count);
+      } 
+    } 
+  });  
+}
+
+function getNewOrders() {
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      
+      if(data[i].OrderStatus.trim() === "Open"){
+        var row = createOrderRow(data[i],i);
+        
+      } 
+      $("#order-rows").append(row);
+    } 
+  });  
 }

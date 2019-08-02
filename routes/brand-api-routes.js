@@ -38,7 +38,7 @@ module.exports = function(app) {
     // console.log(typeof req.params.id);
     db.Brand.destroy({
       where: {
-        Id: req.params.id
+        BrandId: req.params.id
       }
     }).then(function(dbBrand) {
       res.json(dbBrand);

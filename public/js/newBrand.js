@@ -1,6 +1,13 @@
 /* eslint-disable prettier/prettier */
 //alert("test");
 $(document).ready(function() {
+
+  countOpenOrders();
+
+  $("#newOrder").on("click", function(){
+    getNewOrders();
+  });
+
   // Grabbing references 
   var brandName = $("#BrandName");
 
@@ -55,8 +62,8 @@ $(document).ready(function() {
       // brand.Products.length +
       // "</td>" +
       "<td>" +
-      "<button class=\"delete product-options\" data-value=\"" +
-      brand.Id +
+      "<button class='btn btn-sm btn-danger btn-rounded delete product-options' data-value=\"" +
+      brand.BrandId +
       "\">delete</button>" +
       "</td>" +
       "</tr>";
@@ -74,3 +81,29 @@ $(document).ready(function() {
     });
   }
 });
+
+function countOpenOrders() {
+  var count = 0;
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      if(data[i].OrderStatus.trim() === "Open"){
+        count+=1;
+        // console.log("Open" + count);
+        $("#badge").text(count);
+      } 
+    } 
+  });  
+}
+
+function getNewOrders() {
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      
+      if(data[i].OrderStatus.trim() === "Open"){
+        var row = createOrderRow(data[i],i);
+        
+      } 
+      $("#order-rows").append(row);
+    } 
+  });  
+}

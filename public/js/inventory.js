@@ -18,6 +18,7 @@ $(document).ready(function() {
   // eslint-disable-next-line no-unused-vars
   $(document).on("click", "button.edit", function(r) {
     editProduct($(this).attr("data-value"),$($(this).parent().parent().children()[5]).html());
+    // location.reload();
   });
 
 
@@ -85,19 +86,19 @@ $(document).ready(function() {
       "<td>" +
       product.UnitPrice +
       "</td>" +
-      "<td>" +
-      "<button class='btn btn-sm btn-info btn-rounded edit product-options' data-value=\"" +
-      product.ProductId +
-      "\">edit</button>" +
-      "</td>" +
+      // "<td>" +
+      // "<button class='btn btn-sm btn-info btn-rounded edit product-options' data-value=\"" +
+      // product.ProductId +
+      // "\">edit</button>" +
+      // "</td>" +
       // "<td>" + product.Brand.Id + "</td>" +
       "<td>" +
-      "<button class='btn btn-sm btn-danger btn-rounded delete product-options' data-value=\"" +
+      "<button class='btn btn-sm btn-success btn-rounded edit product-options' data-value=\"" +
       product.ProductId +
       "\">update</button>" +
       "</td>" +
       "<td>" +
-      "<button class=\"delete product-options\" data-value=\"" +
+      "<button class='btn btn-sm btn-danger btn-rounded delete product-options' data-value=\"" +
       product.ProductId +
       "\">delete</button>" +
       "</td>" +
@@ -118,14 +119,14 @@ $(document).ready(function() {
   }
 
   
-  function editProduct(id, data) {
+  function editProduct(id, newAmount) {
     $.ajax({
       method: "PUT",
       url: "/products/" + id,
-      data: {Units:data}
+      data: {Units:newAmount}
     }).then(function() {
-      window.location.href = "/inventory";
-      //getProducts();
+      location.reload();
+      // window.location.href = "/inventory";
     });
   }
 

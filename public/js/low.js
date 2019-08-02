@@ -1,6 +1,12 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(function() {
   //var todayDate = new Date()
+  countOpenOrders();
+
+  $("#newOrder").on("click", function(){
+    getNewOrders();
+  });
+
   var lte;
   lte = $("#lessThenEquelTo").val();
   getProducts();
@@ -84,3 +90,29 @@ $(document).ready(function() {
     });
   }
 });
+
+function countOpenOrders() {
+  var count = 0;
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      if(data[i].OrderStatus.trim() === "Open"){
+        count+=1;
+        // console.log("Open" + count);
+        $("#badge").text(count);
+      } 
+    } 
+  });  
+}
+
+function getNewOrders() {
+  $.get("/orders", function(data) {  
+    for (var i = 0; i < data.length; i++) {
+      
+      if(data[i].OrderStatus.trim() === "Open"){
+        var row = createOrderRow(data[i],i);
+        
+      } 
+      $("#order-rows").append(row);
+    } 
+  });  
+}

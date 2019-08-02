@@ -11,7 +11,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-  // GET route for getting all of the posts
+  // GET route for getting all of the products
   app.get("/products", function(req, res) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
@@ -44,7 +44,7 @@ module.exports = function(app) {
     });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for deleting products
   app.delete("/products/:id", function(req, res) {
     db.Product.destroy({
       where: {
@@ -55,13 +55,20 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating posts
-  app.put("/products", function(req, res) {
-    db.Product.update(req.body, {
-      where: {
-        ProductId: req.body.id
+  // PUT route for updating products
+  app.put("/products/:id", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Product.update(
+      {
+        Units: req.body.Units
+      },
+      {
+        where: {
+          ProductId: req.params.id
+        }
       }
-    }).then(function(dbProducts) {
+    ).then(function(dbProducts) {
       res.json(dbProducts);
     });
   });
